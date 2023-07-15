@@ -20,6 +20,21 @@ pipeline {
                 sh 'cd SampleWebApp && mvn clean install'
             }
         }
+
+        stage('Code Qualty Scan') {
+
+           steps {
+                  withSonarQubeEnv('sonar-scanner') {
+             sh "mvn -f SampleWebApp/pom.xml sonar:sonar"      
+               }
+            }
+       }
+        stage('Quality Gate') {
+          steps {
+                 waitForQualityGate abortPipeline: true
+              }
+        }        
+        
         
              stage('Test') {
             steps {
@@ -56,7 +71,7 @@ pipeline {
           steps{  
             script {
                 sh """docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${REPOSITORY_URI}:$IMAGE_TAG"""
-                sh """docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"""
+                sh """docker push ${REPOSITORY_URI}:$IMAGE_TAG}"""
          }
         }
       }
