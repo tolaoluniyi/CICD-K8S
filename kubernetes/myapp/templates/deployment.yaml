@@ -14,13 +14,8 @@ spec:
       {{- include "myapp.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      labels:
-        tags.datadoghq.com/env: dev
-        tags.datadoghq.com/service: firstservice
-        tags.datadoghq.com/version: 7
-        admission.datadoghq.com/enabled: "true"       
+      labels:     
         {{- include "myapp.selectorLabels" . | nindent 8 }}
-      annotations: admission.datadoghq.com/java-lib.version: v1.18.1  
     spec:
       containers:
         - name: {{ .Chart.Name }}
