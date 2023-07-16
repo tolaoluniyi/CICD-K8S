@@ -27,8 +27,8 @@ spec:
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: DD_LOGS_INJECTION
-              value: "true"
+          - name: DD_LOGS_INJECTION
+            value: "true"
           resources:
             requests:
               memory: 0.25Gi
