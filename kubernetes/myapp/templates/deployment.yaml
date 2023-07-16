@@ -6,7 +6,7 @@ metadata:
     {{- include "myapp.labels" . | nindent 4 }}
     tags.datadoghq.com/env: dev
     tags.datadoghq.com/service: firstservice
-    tags.datadoghq.com/version: 7
+    tags.datadoghq.com/version: "7"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -18,7 +18,7 @@ spec:
         {{- include "myapp.selectorLabels" . | nindent 8 }}
         tags.datadoghq.com/env: dev
         tags.datadoghq.com/service: firstservice
-        tags.datadoghq.com/version: 7
+        tags.datadoghq.com/version: "7"
     spec:
       containers:
         - name: {{ .Chart.Name }}
