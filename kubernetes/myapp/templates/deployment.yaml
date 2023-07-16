@@ -25,10 +25,10 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: DD_LOGS_INJECTION
-            value: "true"
+            value: "true"          
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           resources:
             requests:
               memory: 0.25Gi
