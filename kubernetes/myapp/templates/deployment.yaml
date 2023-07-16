@@ -26,8 +26,8 @@ spec:
         - name: {{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           env:
-          - name: DD_LOGS_INJECTION
-            value: "true"          
+            - name: "DD_LOGS_INJECTION"
+              value: "true"          
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           resources:
             requests:
