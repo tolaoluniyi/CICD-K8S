@@ -28,16 +28,10 @@
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
-        <version>3.9.1.2184</version> <!-- Use a stable version -->
-        <executions>
-          <execution>
-            <phase>verify</phase>
-            <goals>
-              <goal>sonar</goal>
-            </goals>
-          </execution>
-        </executions>
+        <version>3.9.1.2184</version>
         <configuration>
+          <sonar.host.url>http://ec2-35-175-171-115.compute-1.amazonaws.com:9000</sonar.host.url>
+          <sonar.login>c50c65be9444f17f2ac41a54caf5607663115de7</sonar.login>
           <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
         </configuration>
       </plugin>
