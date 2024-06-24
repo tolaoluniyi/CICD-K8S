@@ -32,7 +32,7 @@
         <configuration>
           <sonar.host.url>http://ec2-35-175-171-115.compute-1.amazonaws.com:9000</sonar.host.url>
           <sonar.login>c50c65be9444f17f2ac41a54caf5607663115de7</sonar.login>
-          <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
+          <argLine>--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED</argLine>
         </configuration>
       </plugin>
     </plugins>
