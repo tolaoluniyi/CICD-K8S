@@ -117,6 +117,6 @@ resource "aws_instance" "ec2_instance" {
 
 
 # print the url of the jenkins server
-output "website_url" {
+output "website_url1" {
   value     = join("", ["http://", aws_instance.ec2_instance.public_ip, ":", "8080"])
 }
